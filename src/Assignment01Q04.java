@@ -2,10 +2,41 @@ import java.util.Arrays;
 
 public class Assignment01Q04 {
 
+
     public static int[] shiftArrayCyclic(int[] array, int move, char direction) {
-        // TODO: implement
+        // Return original array if invalid direction or trivial array length
+        if (direction != 'R' && direction != 'L') {
+            return array;
+        }
+        if (array == null || array.length <= 1) {
+            return array;
+        }
+
+        // Determine effective shift direction: positive moves right, negative moves left
+        int effRightShift = (direction == 'R') ? move : -move;
+
+        int n = array.length;
+        // Normalize net right shift into range [0, n-1]
+        int shift = ((effRightShift % n) + n) % n;
+
+        if (shift == 0) {
+            return array;
+        }
+
+        // Create temporary array to hold original values
+        int[] temp = new int[n];
+        for (int i = 0; i < n; i++) {
+            temp[i] = array[i];
+        }
+
+        // Apply shift into original array reference
+        for (int i = 0; i < n; i++) {
+            array[(i + shift) % n] = temp[i];
+        }
+
         return array;
     }
+
 
     public static void main(String[] args) {
         System.out.println(Arrays.toString(
