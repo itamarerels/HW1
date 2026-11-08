@@ -4,7 +4,7 @@ public class Assignment01Q04 {
 
 
     public static int[] shiftArrayCyclic(int[] array, int move, char direction) {
-        // Return original array if invalid direction or trivial array length
+        
         if (direction != 'R' && direction != 'L') {
             return array;
         }
@@ -12,11 +12,11 @@ public class Assignment01Q04 {
             return array;
         }
 
-        // Determine effective shift direction: positive moves right, negative moves left
+        
         int effRightShift = (direction == 'R') ? move : -move;
 
         int n = array.length;
-        // Normalize net right shift into range [0, n-1]
+        
         int shift = ((effRightShift % n) + n) % n;
 
         if (shift == 0) {

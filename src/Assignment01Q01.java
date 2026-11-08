@@ -1,6 +1,6 @@
 public class Assignment01Q01 {
     public static void main(String[] args) {
-        // iterate over each string
+        
         for (String str : args) {
             char first = str.charAt(0);
 

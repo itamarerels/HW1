@@ -2,7 +2,7 @@ public class Assignment01Q05 {
 
 
     public static int findShortestPath(int[][] matrix, int i, int j) {
-        // Distance from vertex to itself is 0
+       
         if (i == j) {
             return 0;
         }
@@ -10,10 +10,10 @@ public class Assignment01Q05 {
         int n = matrix.length;
         int[] dist = new int[n];
         for (int k = 0; k < n; k++) {
-            dist[k] = -1; // -1 represents unvisited/unreachable
+            dist[k] = -1; 
         }
 
-        // Implement Breadth-First Search (BFS) using primitive array queue
+        
         int[] queue = new int[n];
         int head = 0;
         int tail = 0;
@@ -36,7 +36,7 @@ public class Assignment01Q05 {
             }
         }
 
-        return dist[j]; // Returns distance or -1 if no path exists
+        return dist[j]; 
     }
 
 
